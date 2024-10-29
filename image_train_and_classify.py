@@ -54,21 +54,24 @@ def count_class_instances(dataset, indices, class_names):
 
 
 #########################################################################################
-# Training function
-# Updated training function to collect predictions only once after final epoch
-def train_model(model, train_loader, val_loader, criterion, optimizer, num_epochs=6):
-    total_time = 0
+# Training function with learning curve tracking and batch-wise progress
+def train_model(model, train_loader, val_loader, criterion, optimizer, num_epochs=15):
+    total_time = 0  # total training time for all epochsccc
+
     num_images = len(train_loader.dataset)  # Unique number of training images
+    train_losses, val_losses, train_accuracies, val_accuracies = [], [], [], []  # Track learning curves
 
     for epoch in range(num_epochs):
         print(f'\nEpoch {epoch + 1}/{num_epochs}')
-        model.train()
+
+        # Training phase
+        model.train()  # train mode
         running_loss = 0.0
-        correct = 0
-        total = 0
+        running_correct = 0
+        total_train = 0
+
         start_time = time.time()
 
-        # Training loop
         for i, (inputs, labels) in enumerate(train_loader):
             inputs, labels = inputs.to(device), labels.to(device)
             optimizer.zero_grad()
@@ -76,21 +79,62 @@ def train_model(model, train_loader, val_loader, criterion, optimizer, num_epoch
             loss = criterion(outputs, labels)
             loss.backward()
             optimizer.step()
+
             running_loss += loss.item()
             _, predicted = outputs.max(1)
-            total += labels.size(0)
-            correct += predicted.eq(labels).sum().item()
+            total_train += labels.size(0)
+            running_correct += predicted.eq(labels).sum().item()
+
+            # # Validation phase within epoch
+            # model.eval()
+            # val_loss, val_correct, total_val = 0.0, 0, 0
+            # with torch.no_grad():
+            #     for val_inputs, val_labels in val_loader:
+            #         val_inputs, val_labels = val_inputs.to(device), val_labels.to(device)
+            #         val_outputs = model(val_inputs)
+            #         val_loss += criterion(val_outputs, val_labels).item()
+            #         _, val_predicted = val_outputs.max(1)
+            #         total_val += val_labels.size(0)
+            #         val_correct += val_predicted.eq(val_labels).sum().item()
+            # model.train()  # Switch back to training mode
+
+            # Print progress
             if (i + 1) % 10 == 0:  # Print every 10 batches
-                print(f'Batch {i + 1}/{len(train_loader)} - Loss: {running_loss / (i + 1):.4f} - Accuracy: {100 * correct / total:.2f}%')
+                print(f'Batch {i + 1}/{len(train_loader)} - Train Loss: {running_loss / (i + 1):.4f}, '
+                      f'Train Accuracy: {100 * running_correct / total_train:.2f}% ')
+
+        # Validation phase (once per epoch)
+        model.eval()  # Evaluation mode, so that the weights are not changed
+        val_loss, val_correct, total_val = 0.0, 0, 0
+        with torch.no_grad():
+            for val_inputs, val_labels in val_loader:
+                val_inputs, val_labels = val_inputs.to(device), val_labels.to(device)
+                val_outputs = model(val_inputs)
+                val_loss += criterion(val_outputs, val_labels).item()
+                _, val_predicted = val_outputs.max(1)
+                total_val += val_labels.size(0)
+                val_correct += val_predicted.eq(val_labels).sum().item()
+
+
+        # Record losses and accuracies for plotting
+        epoch_train_loss = running_loss / len(train_loader)
+        epoch_train_accuracy = 100 * running_correct / total_train
+        epoch_val_loss = val_loss / len(val_loader)
+        epoch_val_accuracy = 100 * val_correct / total_val
+        train_losses.append(epoch_train_loss)
+        val_losses.append(epoch_val_loss)
+        train_accuracies.append(epoch_train_accuracy)
+        val_accuracies.append(epoch_val_accuracy)
 
         # Track epoch time
-        epoch_time = time.time() - start_time
+        epoch_time = time.time() - start_time  # train + validation
         total_time += epoch_time
         print(f'Epoch {epoch + 1} completed in {epoch_time:.2f} seconds.')
-        print(f'Training Loss: {running_loss / len(train_loader):.4f} | Training Accuracy: {100 * correct / total:.2f}%')
+        print(f'Training Loss: {epoch_train_loss:.4f} | Training Accuracy: {epoch_train_accuracy:.2f}%')
+        print(f'Validation Loss: {epoch_val_loss:.4f} | Validation Accuracy: {epoch_val_accuracy:.2f}%')
 
     # Print total training time
-    print(f'\n===> Total Training Time for {num_images} images across {num_epochs} epochs = {total_time:.2f} seconds.\n')
+    print(f'\n=====> Total Training Time for {num_images} images for all {num_epochs} epochs = {total_time:.2f} seconds.\n')
 
     # Final validation phase after all epochs
     print("Final validation using validation dataset...")
@@ -106,6 +150,25 @@ def train_model(model, train_loader, val_loader, criterion, optimizer, num_epoch
             final_labels.extend(labels.cpu().numpy())
             final_preds.extend(predicted.cpu().numpy())
 
+    # Plot learning curves
+    plt.figure(figsize=(12, 5))
+    plt.subplot(1, 2, 1)
+    plt.plot(range(1, num_epochs + 1), train_losses, label='Training Loss')
+    plt.plot(range(1, num_epochs + 1), val_losses, label='Validation Loss')
+    plt.xlabel('Epoch')
+    plt.ylabel('Loss')
+    plt.title('Loss Curve')
+    plt.legend()
+
+    plt.subplot(1, 2, 2)
+    plt.plot(range(1, num_epochs + 1), train_accuracies, label='Training Accuracy')
+    plt.plot(range(1, num_epochs + 1), val_accuracies, label='Validation Accuracy')
+    plt.xlabel('Epoch')
+    plt.ylabel('Accuracy (%)')
+    plt.title('Accuracy Curve')
+    plt.legend()
+
+    plt.show()
 
     return final_labels, final_preds
 
@@ -145,7 +208,7 @@ def plot_confusion_matrix_with_percentages(labels, preds, class_names):
     plt.show()
 
 
-#########################################################################################################
+#########################################################################################
 
 # Load pre-trained GoogLeNet
 net = models.googlenet(weights=models.GoogLeNet_Weights.IMAGENET1K_V1)
