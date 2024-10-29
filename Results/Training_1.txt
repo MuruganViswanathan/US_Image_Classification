@@ -1,0 +1,192 @@
+
+(presetfree) PS E:\Work\Proj_PRESETFREE\PresetFree\US_Image_Classification> python .\image_train_and_classify.py
+Epoch 1/6
+Batch 10/248 - Loss: 1.7632 - Accuracy: 33.00%
+Batch 20/248 - Loss: 1.6203 - Accuracy: 43.50%
+Batch 30/248 - Loss: 1.5135 - Accuracy: 47.33%
+Batch 40/248 - Loss: 1.4507 - Accuracy: 50.50%
+Batch 50/248 - Loss: 1.3726 - Accuracy: 55.60%
+Batch 60/248 - Loss: 1.3081 - Accuracy: 59.00%
+Batch 70/248 - Loss: 1.2421 - Accuracy: 62.71%
+Batch 80/248 - Loss: 1.1925 - Accuracy: 64.88%
+Batch 90/248 - Loss: 1.1503 - Accuracy: 67.11%
+Batch 100/248 - Loss: 1.1177 - Accuracy: 68.50%
+Batch 110/248 - Loss: 1.0936 - Accuracy: 69.36%
+Batch 120/248 - Loss: 1.0532 - Accuracy: 71.00%
+Batch 130/248 - Loss: 1.0080 - Accuracy: 72.69%
+Batch 140/248 - Loss: 0.9860 - Accuracy: 73.36%
+Batch 150/248 - Loss: 0.9548 - Accuracy: 74.53%
+Batch 160/248 - Loss: 0.9388 - Accuracy: 75.19%
+Batch 170/248 - Loss: 0.9138 - Accuracy: 75.94%
+Batch 180/248 - Loss: 0.8905 - Accuracy: 76.56%
+Batch 190/248 - Loss: 0.8707 - Accuracy: 77.05%
+Batch 200/248 - Loss: 0.8685 - Accuracy: 76.95%
+Batch 210/248 - Loss: 0.8546 - Accuracy: 77.29%
+Batch 220/248 - Loss: 0.8418 - Accuracy: 77.73%
+Batch 230/248 - Loss: 0.8255 - Accuracy: 78.22%
+Batch 240/248 - Loss: 0.8136 - Accuracy: 78.50%
+Epoch 1 completed in 152.88 seconds.
+Training Loss: 0.8022 | Training Accuracy: 78.83%
+Validation Loss: 0.4098 | Validation Accuracy: 87.84%
+Epoch 2/6
+Batch 10/248 - Loss: 0.5102 - Accuracy: 84.00%
+Batch 20/248 - Loss: 0.5559 - Accuracy: 84.00%
+Batch 30/248 - Loss: 0.5315 - Accuracy: 84.33%
+Batch 40/248 - Loss: 0.5205 - Accuracy: 84.75%
+Batch 50/248 - Loss: 0.5229 - Accuracy: 85.00%
+Batch 60/248 - Loss: 0.5323 - Accuracy: 84.33%
+Batch 70/248 - Loss: 0.5224 - Accuracy: 85.14%
+Batch 80/248 - Loss: 0.5270 - Accuracy: 84.88%
+Batch 90/248 - Loss: 0.5151 - Accuracy: 85.33%
+Batch 100/248 - Loss: 0.5177 - Accuracy: 85.20%
+Batch 110/248 - Loss: 0.5083 - Accuracy: 85.45%
+Batch 120/248 - Loss: 0.5019 - Accuracy: 85.75%
+Batch 130/248 - Loss: 0.5065 - Accuracy: 85.46%
+Batch 140/248 - Loss: 0.5002 - Accuracy: 85.79%
+Batch 150/248 - Loss: 0.4937 - Accuracy: 86.00%
+Batch 160/248 - Loss: 0.4904 - Accuracy: 86.12%
+Batch 170/248 - Loss: 0.4778 - Accuracy: 86.53%
+Batch 180/248 - Loss: 0.4790 - Accuracy: 86.50%
+Batch 190/248 - Loss: 0.4726 - Accuracy: 86.63%
+Batch 200/248 - Loss: 0.4683 - Accuracy: 86.75%
+Batch 210/248 - Loss: 0.4711 - Accuracy: 86.76%
+Batch 220/248 - Loss: 0.4680 - Accuracy: 86.86%
+Batch 230/248 - Loss: 0.4631 - Accuracy: 86.91%
+Batch 240/248 - Loss: 0.4620 - Accuracy: 86.92%
+Epoch 2 completed in 130.45 seconds.
+Training Loss: 0.4638 | Training Accuracy: 86.91%
+Validation Loss: 0.3197 | Validation Accuracy: 90.76%
+Epoch 3/6
+Batch 10/248 - Loss: 0.4057 - Accuracy: 88.00%
+Batch 20/248 - Loss: 0.3365 - Accuracy: 90.00%
+Batch 30/248 - Loss: 0.3513 - Accuracy: 89.67%
+Batch 40/248 - Loss: 0.3625 - Accuracy: 89.50%
+Batch 50/248 - Loss: 0.3984 - Accuracy: 88.40%
+Batch 60/248 - Loss: 0.4047 - Accuracy: 88.17%
+Batch 70/248 - Loss: 0.4049 - Accuracy: 88.00%
+Batch 80/248 - Loss: 0.3943 - Accuracy: 88.38%
+Batch 90/248 - Loss: 0.3912 - Accuracy: 88.56%
+Batch 100/248 - Loss: 0.3860 - Accuracy: 88.80%
+Batch 110/248 - Loss: 0.3928 - Accuracy: 88.64%
+Batch 120/248 - Loss: 0.3900 - Accuracy: 88.92%
+Batch 130/248 - Loss: 0.3858 - Accuracy: 89.00%
+Batch 140/248 - Loss: 0.3871 - Accuracy: 88.93%
+Batch 150/248 - Loss: 0.3824 - Accuracy: 89.07%
+Batch 160/248 - Loss: 0.3758 - Accuracy: 89.19%
+Batch 170/248 - Loss: 0.3747 - Accuracy: 89.18%
+Batch 180/248 - Loss: 0.3728 - Accuracy: 89.11%
+Batch 190/248 - Loss: 0.3780 - Accuracy: 89.00%
+Batch 200/248 - Loss: 0.3833 - Accuracy: 88.70%
+Batch 210/248 - Loss: 0.3814 - Accuracy: 88.67%
+Batch 220/248 - Loss: 0.3814 - Accuracy: 88.68%
+Batch 230/248 - Loss: 0.3841 - Accuracy: 88.65%
+Batch 240/248 - Loss: 0.3805 - Accuracy: 88.79%
+Epoch 3 completed in 129.45 seconds.
+Training Loss: 0.3763 | Training Accuracy: 88.93%
+Validation Loss: 0.2603 | Validation Accuracy: 92.18%
+Epoch 4/6
+Batch 10/248 - Loss: 0.3286 - Accuracy: 89.00%
+Batch 20/248 - Loss: 0.3447 - Accuracy: 87.50%
+Batch 30/248 - Loss: 0.3572 - Accuracy: 88.33%
+Batch 40/248 - Loss: 0.3395 - Accuracy: 89.75%
+Batch 50/248 - Loss: 0.3345 - Accuracy: 90.20%
+Batch 60/248 - Loss: 0.3264 - Accuracy: 90.50%
+Batch 70/248 - Loss: 0.3291 - Accuracy: 90.71%
+Batch 80/248 - Loss: 0.3283 - Accuracy: 90.50%
+Batch 90/248 - Loss: 0.3284 - Accuracy: 90.56%
+Batch 100/248 - Loss: 0.3151 - Accuracy: 91.10%
+Batch 110/248 - Loss: 0.3320 - Accuracy: 90.27%
+Batch 120/248 - Loss: 0.3362 - Accuracy: 90.33%
+Batch 130/248 - Loss: 0.3320 - Accuracy: 90.46%
+Batch 140/248 - Loss: 0.3262 - Accuracy: 91.00%
+Batch 150/248 - Loss: 0.3267 - Accuracy: 90.80%
+Batch 160/248 - Loss: 0.3169 - Accuracy: 91.19%
+Batch 170/248 - Loss: 0.3166 - Accuracy: 91.12%
+Batch 180/248 - Loss: 0.3125 - Accuracy: 91.22%
+Batch 190/248 - Loss: 0.3060 - Accuracy: 91.47%
+Batch 200/248 - Loss: 0.3089 - Accuracy: 91.20%
+Batch 210/248 - Loss: 0.3052 - Accuracy: 91.29%
+Batch 220/248 - Loss: 0.3071 - Accuracy: 91.14%
+Batch 230/248 - Loss: 0.3046 - Accuracy: 91.17%
+Batch 240/248 - Loss: 0.3069 - Accuracy: 91.17%
+Epoch 4 completed in 128.79 seconds.
+Training Loss: 0.3094 | Training Accuracy: 91.23%
+Validation Loss: 0.2226 | Validation Accuracy: 93.69%
+Epoch 5/6
+Batch 10/248 - Loss: 0.2414 - Accuracy: 95.00%
+Batch 20/248 - Loss: 0.2224 - Accuracy: 95.00%
+Batch 30/248 - Loss: 0.2524 - Accuracy: 93.67%
+Batch 40/248 - Loss: 0.2709 - Accuracy: 93.25%
+Batch 50/248 - Loss: 0.2938 - Accuracy: 92.40%
+Batch 60/248 - Loss: 0.2904 - Accuracy: 92.67%
+Batch 70/248 - Loss: 0.2880 - Accuracy: 92.57%
+Batch 80/248 - Loss: 0.2838 - Accuracy: 92.50%
+Batch 90/248 - Loss: 0.2762 - Accuracy: 92.89%
+Batch 100/248 - Loss: 0.2731 - Accuracy: 93.10%
+Batch 110/248 - Loss: 0.2798 - Accuracy: 92.91%
+Batch 120/248 - Loss: 0.2780 - Accuracy: 92.75%
+Batch 130/248 - Loss: 0.2705 - Accuracy: 93.00%
+Batch 140/248 - Loss: 0.2664 - Accuracy: 93.00%
+Batch 150/248 - Loss: 0.2708 - Accuracy: 92.80%
+Batch 160/248 - Loss: 0.2723 - Accuracy: 92.62%
+Batch 170/248 - Loss: 0.2700 - Accuracy: 92.65%
+Batch 180/248 - Loss: 0.2654 - Accuracy: 92.83%
+Batch 190/248 - Loss: 0.2643 - Accuracy: 92.84%
+Batch 200/248 - Loss: 0.2626 - Accuracy: 92.90%
+Batch 210/248 - Loss: 0.2637 - Accuracy: 92.90%
+Batch 220/248 - Loss: 0.2678 - Accuracy: 92.82%
+Batch 230/248 - Loss: 0.2678 - Accuracy: 92.83%
+Batch 240/248 - Loss: 0.2679 - Accuracy: 92.88%
+Epoch 5 completed in 138.16 seconds.
+Training Loss: 0.2718 | Training Accuracy: 92.73%
+Validation Loss: 0.1962 | Validation Accuracy: 95.00%
+Epoch 6/6
+Batch 10/248 - Loss: 0.1642 - Accuracy: 96.00%
+Batch 20/248 - Loss: 0.1640 - Accuracy: 97.00%
+Batch 30/248 - Loss: 0.1875 - Accuracy: 96.00%
+Batch 40/248 - Loss: 0.2186 - Accuracy: 94.75%
+Batch 50/248 - Loss: 0.2064 - Accuracy: 95.20%
+Batch 60/248 - Loss: 0.2182 - Accuracy: 95.00%
+Batch 70/248 - Loss: 0.2265 - Accuracy: 94.71%
+Batch 80/248 - Loss: 0.2301 - Accuracy: 94.62%
+Batch 90/248 - Loss: 0.2349 - Accuracy: 94.11%
+Batch 100/248 - Loss: 0.2328 - Accuracy: 94.20%
+Batch 110/248 - Loss: 0.2412 - Accuracy: 93.45%
+Batch 120/248 - Loss: 0.2359 - Accuracy: 93.42%
+Batch 130/248 - Loss: 0.2392 - Accuracy: 93.31%
+Batch 140/248 - Loss: 0.2365 - Accuracy: 93.57%
+Batch 150/248 - Loss: 0.2363 - Accuracy: 93.60%
+Batch 160/248 - Loss: 0.2303 - Accuracy: 93.81%
+Batch 170/248 - Loss: 0.2294 - Accuracy: 93.71%
+Batch 180/248 - Loss: 0.2349 - Accuracy: 93.44%
+Batch 190/248 - Loss: 0.2319 - Accuracy: 93.58%
+Batch 200/248 - Loss: 0.2272 - Accuracy: 93.75%
+Batch 210/248 - Loss: 0.2294 - Accuracy: 93.71%
+Batch 220/248 - Loss: 0.2294 - Accuracy: 93.77%
+Batch 230/248 - Loss: 0.2261 - Accuracy: 93.91%
+Batch 240/248 - Loss: 0.2244 - Accuracy: 94.00%
+Epoch 6 completed in 129.58 seconds.
+Training Loss: 0.2255 | Training Accuracy: 93.86%
+Validation Loss: 0.1749 | Validation Accuracy: 95.19%
+Overall accuracy: 95.19%
+E:\Work\Proj_PRESETFREE\PresetFree\US_Image_Classification\image_train_and_classify.py:141: RuntimeWarning: invalid value encountered in divide
+  prob_prediction_is_correct = cm.diagonal() / cm.sum(axis=0) * 100
+
+Class-wise Accuracy (Probability Object Correctly Identified):
+Breast: 96.15%
+Kidney: 65.79%
+Liver: 98.21%
+Ovary: 94.61%
+Spleen: 0.00%
+Thyroid: 97.62%
+Uterus: 98.30%
+
+Class-wise Accuracy (Probability Prediction is Correct):
+Breast: 96.15%
+Kidney: 69.44%
+Liver: 94.65%
+Ovary: 100.00%
+Spleen: nan%
+Thyroid: 97.62%
+Uterus: 95.85%
+(presetfree) PS E:\Work\Proj_PRESETFREE\PresetFree\US_Image_Classification>

@@ -1,0 +1,195 @@
+
+(presetfree) PS E:\Work\Proj_PRESETFREE\PresetFree\US_Image_Classification> python .\image_train_and_classify.py
+class_names: ['Breast', 'Kidney', 'Liver', 'Ovary', 'Spleen', 'Thyroid', 'Uterus'], num_classes = 7
+train_size = 2475, val_size = 1061
+
+Training data class distribution:
+Class distribution:
+Breast: 47
+Kidney: 120
+Liver: 1146
+Ovary: 502
+Spleen: 30
+Thyroid: 82
+Uterus: 548
+
+Validation data class distribution:
+Class distribution:
+Breast: 21
+Kidney: 48
+Liver: 483
+Ovary: 205
+Spleen: 22
+Thyroid: 33
+Uterus: 249
+device = cpu
+Epoch 1/6
+Batch 10/248 - Loss: 1.6862 - Accuracy: 44.00%
+Batch 20/248 - Loss: 1.5728 - Accuracy: 48.00%
+Batch 30/248 - Loss: 1.4745 - Accuracy: 48.67%
+Batch 40/248 - Loss: 1.3787 - Accuracy: 51.00%
+Batch 50/248 - Loss: 1.2987 - Accuracy: 55.80%
+Batch 60/248 - Loss: 1.2333 - Accuracy: 59.17%
+Batch 70/248 - Loss: 1.1918 - Accuracy: 62.57%
+Batch 80/248 - Loss: 1.1541 - Accuracy: 65.25%
+Batch 90/248 - Loss: 1.0970 - Accuracy: 67.78%
+Batch 100/248 - Loss: 1.0603 - Accuracy: 69.20%
+Batch 110/248 - Loss: 1.0324 - Accuracy: 70.55%
+Batch 120/248 - Loss: 1.0037 - Accuracy: 71.75%
+Batch 130/248 - Loss: 0.9814 - Accuracy: 72.69%
+Batch 140/248 - Loss: 0.9608 - Accuracy: 73.36%
+Batch 150/248 - Loss: 0.9416 - Accuracy: 74.00%
+Batch 160/248 - Loss: 0.9200 - Accuracy: 74.81%
+Batch 170/248 - Loss: 0.9046 - Accuracy: 75.41%
+Batch 180/248 - Loss: 0.8824 - Accuracy: 76.17%
+Batch 190/248 - Loss: 0.8613 - Accuracy: 76.84%
+Batch 200/248 - Loss: 0.8492 - Accuracy: 77.25%
+Batch 210/248 - Loss: 0.8313 - Accuracy: 77.81%
+Batch 220/248 - Loss: 0.8119 - Accuracy: 78.41%
+Batch 230/248 - Loss: 0.8058 - Accuracy: 78.52%
+Batch 240/248 - Loss: 0.7973 - Accuracy: 78.79%
+Epoch 1 completed in 163.29 seconds.
+Training Loss: 0.7881 | Training Accuracy: 79.07%
+Validation Loss: 0.4325 | Validation Accuracy: 89.26%
+Epoch 2/6
+Batch 10/248 - Loss: 0.4848 - Accuracy: 90.00%
+Batch 20/248 - Loss: 0.4249 - Accuracy: 92.00%
+Batch 30/248 - Loss: 0.4898 - Accuracy: 90.00%
+Batch 40/248 - Loss: 0.4961 - Accuracy: 88.75%
+Batch 50/248 - Loss: 0.4959 - Accuracy: 88.20%
+Batch 60/248 - Loss: 0.4875 - Accuracy: 88.00%
+Batch 70/248 - Loss: 0.4725 - Accuracy: 88.29%
+Batch 80/248 - Loss: 0.4832 - Accuracy: 87.88%
+Batch 90/248 - Loss: 0.4767 - Accuracy: 88.22%
+Batch 100/248 - Loss: 0.4818 - Accuracy: 87.80%
+Batch 110/248 - Loss: 0.4788 - Accuracy: 87.82%
+Batch 120/248 - Loss: 0.4721 - Accuracy: 87.92%
+Batch 130/248 - Loss: 0.4775 - Accuracy: 87.69%
+Batch 140/248 - Loss: 0.4852 - Accuracy: 87.36%
+Batch 150/248 - Loss: 0.4724 - Accuracy: 87.87%
+Batch 160/248 - Loss: 0.4641 - Accuracy: 87.94%
+Batch 170/248 - Loss: 0.4738 - Accuracy: 87.65%
+Batch 180/248 - Loss: 0.4667 - Accuracy: 87.83%
+Batch 190/248 - Loss: 0.4693 - Accuracy: 87.68%
+Batch 200/248 - Loss: 0.4718 - Accuracy: 87.50%
+Batch 210/248 - Loss: 0.4633 - Accuracy: 87.67%
+Batch 220/248 - Loss: 0.4625 - Accuracy: 87.64%
+Batch 230/248 - Loss: 0.4615 - Accuracy: 87.70%
+Batch 240/248 - Loss: 0.4537 - Accuracy: 87.83%
+Epoch 2 completed in 133.73 seconds.
+Training Loss: 0.4504 | Training Accuracy: 87.88%
+Validation Loss: 0.3384 | Validation Accuracy: 89.54%
+Epoch 3/6
+Batch 10/248 - Loss: 0.2731 - Accuracy: 94.00%
+Batch 20/248 - Loss: 0.2980 - Accuracy: 94.00%
+Batch 30/248 - Loss: 0.3745 - Accuracy: 91.33%
+Batch 40/248 - Loss: 0.3707 - Accuracy: 91.00%
+Batch 50/248 - Loss: 0.3702 - Accuracy: 90.60%
+Batch 60/248 - Loss: 0.3734 - Accuracy: 90.67%
+Batch 70/248 - Loss: 0.3692 - Accuracy: 90.43%
+Batch 80/248 - Loss: 0.3701 - Accuracy: 90.00%
+Batch 90/248 - Loss: 0.3586 - Accuracy: 90.22%
+Batch 100/248 - Loss: 0.3673 - Accuracy: 90.10%
+Batch 110/248 - Loss: 0.3727 - Accuracy: 89.64%
+Batch 120/248 - Loss: 0.3691 - Accuracy: 89.58%
+Batch 130/248 - Loss: 0.3713 - Accuracy: 89.62%
+Batch 140/248 - Loss: 0.3675 - Accuracy: 89.64%
+Batch 150/248 - Loss: 0.3625 - Accuracy: 89.67%
+Batch 160/248 - Loss: 0.3624 - Accuracy: 89.75%
+Batch 170/248 - Loss: 0.3591 - Accuracy: 89.76%
+Batch 180/248 - Loss: 0.3609 - Accuracy: 89.72%
+Batch 190/248 - Loss: 0.3590 - Accuracy: 89.84%
+Batch 200/248 - Loss: 0.3641 - Accuracy: 89.65%
+Batch 210/248 - Loss: 0.3674 - Accuracy: 89.33%
+Batch 220/248 - Loss: 0.3645 - Accuracy: 89.36%
+Batch 230/248 - Loss: 0.3633 - Accuracy: 89.39%
+Batch 240/248 - Loss: 0.3635 - Accuracy: 89.38%
+Epoch 3 completed in 136.46 seconds.
+Training Loss: 0.3612 | Training Accuracy: 89.41%
+Validation Loss: 0.2876 | Validation Accuracy: 90.76%
+Epoch 4/6
+Batch 10/248 - Loss: 0.3011 - Accuracy: 92.00%
+Batch 20/248 - Loss: 0.3623 - Accuracy: 90.50%
+Batch 30/248 - Loss: 0.3345 - Accuracy: 91.00%
+Batch 40/248 - Loss: 0.3501 - Accuracy: 90.00%
+Batch 50/248 - Loss: 0.3172 - Accuracy: 91.40%
+Batch 60/248 - Loss: 0.3377 - Accuracy: 90.17%
+Batch 70/248 - Loss: 0.3257 - Accuracy: 90.71%
+Batch 80/248 - Loss: 0.3288 - Accuracy: 90.38%
+Batch 90/248 - Loss: 0.3282 - Accuracy: 90.33%
+Batch 100/248 - Loss: 0.3380 - Accuracy: 89.90%
+Batch 110/248 - Loss: 0.3223 - Accuracy: 90.36%
+Batch 120/248 - Loss: 0.3177 - Accuracy: 90.25%
+Batch 130/248 - Loss: 0.3147 - Accuracy: 90.54%
+Batch 140/248 - Loss: 0.3081 - Accuracy: 90.79%
+Batch 150/248 - Loss: 0.3072 - Accuracy: 90.93%
+Batch 160/248 - Loss: 0.3042 - Accuracy: 91.06%
+Batch 170/248 - Loss: 0.3084 - Accuracy: 90.76%
+Batch 180/248 - Loss: 0.3099 - Accuracy: 90.61%
+Batch 190/248 - Loss: 0.3115 - Accuracy: 90.58%
+Batch 200/248 - Loss: 0.3125 - Accuracy: 90.55%
+Batch 210/248 - Loss: 0.3116 - Accuracy: 90.62%
+Batch 220/248 - Loss: 0.3097 - Accuracy: 90.64%
+Batch 230/248 - Loss: 0.3087 - Accuracy: 90.61%
+Batch 240/248 - Loss: 0.3094 - Accuracy: 90.62%
+Epoch 4 completed in 133.05 seconds.
+Training Loss: 0.3073 | Training Accuracy: 90.59%
+Validation Loss: 0.2563 | Validation Accuracy: 91.80%
+Epoch 5/6
+Batch 10/248 - Loss: 0.2607 - Accuracy: 93.00%
+Batch 20/248 - Loss: 0.2853 - Accuracy: 91.00%
+Batch 30/248 - Loss: 0.2638 - Accuracy: 92.33%
+Batch 40/248 - Loss: 0.2717 - Accuracy: 91.75%
+Batch 50/248 - Loss: 0.2621 - Accuracy: 91.80%
+Batch 60/248 - Loss: 0.2603 - Accuracy: 91.67%
+Batch 70/248 - Loss: 0.2519 - Accuracy: 92.43%
+Batch 80/248 - Loss: 0.2539 - Accuracy: 92.25%
+Batch 90/248 - Loss: 0.2619 - Accuracy: 92.00%
+Batch 100/248 - Loss: 0.2708 - Accuracy: 91.80%
+Batch 110/248 - Loss: 0.2698 - Accuracy: 91.82%
+Batch 120/248 - Loss: 0.2697 - Accuracy: 92.00%
+Batch 130/248 - Loss: 0.2724 - Accuracy: 91.85%
+Batch 140/248 - Loss: 0.2741 - Accuracy: 91.64%
+Batch 150/248 - Loss: 0.2696 - Accuracy: 91.80%
+Batch 160/248 - Loss: 0.2629 - Accuracy: 92.12%
+Batch 170/248 - Loss: 0.2622 - Accuracy: 92.00%
+Batch 180/248 - Loss: 0.2638 - Accuracy: 92.06%
+Batch 190/248 - Loss: 0.2631 - Accuracy: 92.00%
+Batch 200/248 - Loss: 0.2666 - Accuracy: 91.95%
+Batch 210/248 - Loss: 0.2625 - Accuracy: 92.10%
+Batch 220/248 - Loss: 0.2605 - Accuracy: 92.18%
+Batch 230/248 - Loss: 0.2581 - Accuracy: 92.30%
+Batch 240/248 - Loss: 0.2518 - Accuracy: 92.58%
+Epoch 5 completed in 128.58 seconds.
+Training Loss: 0.2556 | Training Accuracy: 92.40%
+Validation Loss: 0.2271 | Validation Accuracy: 92.74%
+Epoch 6/6
+Batch 10/248 - Loss: 0.2247 - Accuracy: 95.00%
+Batch 20/248 - Loss: 0.2490 - Accuracy: 93.50%
+Batch 30/248 - Loss: 0.2801 - Accuracy: 92.00%
+Batch 40/248 - Loss: 0.2880 - Accuracy: 91.75%
+Batch 50/248 - Loss: 0.2651 - Accuracy: 92.80%
+Batch 60/248 - Loss: 0.2493 - Accuracy: 93.17%
+Batch 70/248 - Loss: 0.2537 - Accuracy: 93.29%
+Batch 80/248 - Loss: 0.2551 - Accuracy: 93.00%
+Batch 90/248 - Loss: 0.2505 - Accuracy: 93.11%
+Batch 100/248 - Loss: 0.2461 - Accuracy: 92.90%
+Batch 110/248 - Loss: 0.2426 - Accuracy: 93.09%
+Batch 120/248 - Loss: 0.2424 - Accuracy: 93.08%
+Batch 130/248 - Loss: 0.2351 - Accuracy: 93.23%
+Batch 140/248 - Loss: 0.2318 - Accuracy: 93.36%
+Batch 150/248 - Loss: 0.2412 - Accuracy: 93.07%
+Batch 160/248 - Loss: 0.2434 - Accuracy: 93.12%
+Batch 170/248 - Loss: 0.2418 - Accuracy: 93.24%
+Batch 180/248 - Loss: 0.2427 - Accuracy: 93.17%
+Batch 190/248 - Loss: 0.2400 - Accuracy: 93.26%
+Batch 200/248 - Loss: 0.2355 - Accuracy: 93.40%
+Batch 210/248 - Loss: 0.2310 - Accuracy: 93.57%
+Batch 220/248 - Loss: 0.2323 - Accuracy: 93.59%
+Batch 230/248 - Loss: 0.2268 - Accuracy: 93.87%
+Batch 240/248 - Loss: 0.2256 - Accuracy: 93.96%
+Epoch 6 completed in 129.18 seconds.
+Training Loss: 0.2212 | Training Accuracy: 94.10%
+Validation Loss: 0.2140 | Validation Accuracy: 93.50%
+Model saved as googlenet_ultrasound.pth
+(presetfree) PS E:\Work\Proj_PRESETFREE\PresetFree\US_Image_Classification>

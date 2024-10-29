@@ -1,0 +1,294 @@
+(presetfree) PS E:\Work\Proj_PRESETFREE\PresetFree\US_Image_Classification> python .\image_train_and_classify.py
+class_names: ['Breast', 'Kidney', 'Liver', 'Ovary', 'Spleen', 'Thyroid', 'Uterus'], num_classes = 7
+train_size = 2475, val_size = 1061
+
+===> device = cuda
+
+
+Training data class distribution:
+Class distribution:
+Breast: 46
+Kidney: 116
+Liver: 1134
+Ovary: 511
+Spleen: 30
+Thyroid: 84
+Uterus: 554
+
+Validation data class distribution:
+Class distribution:
+Breast: 22
+Kidney: 52
+Liver: 495
+Ovary: 196
+Spleen: 22
+Thyroid: 31
+Uterus: 243
+
+Epoch 1/9
+Batch 10/248 - Train Loss: 1.8004, Train Accuracy: 29.00%
+Batch 20/248 - Train Loss: 1.6262, Train Accuracy: 38.00%
+Batch 30/248 - Train Loss: 1.4828, Train Accuracy: 42.67%
+Batch 40/248 - Train Loss: 1.3982, Train Accuracy: 47.25%
+Batch 50/248 - Train Loss: 1.3214, Train Accuracy: 52.20%
+Batch 60/248 - Train Loss: 1.2530, Train Accuracy: 57.67%
+Batch 70/248 - Train Loss: 1.2027, Train Accuracy: 61.57%
+Batch 80/248 - Train Loss: 1.1447, Train Accuracy: 64.88%
+Batch 90/248 - Train Loss: 1.1117, Train Accuracy: 66.44%
+Batch 100/248 - Train Loss: 1.0728, Train Accuracy: 68.40%
+Batch 110/248 - Train Loss: 1.0380, Train Accuracy: 70.09%
+Batch 120/248 - Train Loss: 1.0021, Train Accuracy: 71.50%
+Batch 130/248 - Train Loss: 0.9782, Train Accuracy: 72.38%
+Batch 140/248 - Train Loss: 0.9625, Train Accuracy: 72.86%
+Batch 150/248 - Train Loss: 0.9551, Train Accuracy: 73.07%
+Batch 160/248 - Train Loss: 0.9283, Train Accuracy: 74.06%
+Batch 170/248 - Train Loss: 0.9004, Train Accuracy: 75.12%
+Batch 180/248 - Train Loss: 0.8767, Train Accuracy: 75.89%
+Batch 190/248 - Train Loss: 0.8625, Train Accuracy: 76.26%
+Batch 200/248 - Train Loss: 0.8396, Train Accuracy: 77.00%
+Batch 210/248 - Train Loss: 0.8390, Train Accuracy: 77.00%
+Batch 220/248 - Train Loss: 0.8282, Train Accuracy: 77.32%
+Batch 230/248 - Train Loss: 0.8110, Train Accuracy: 77.83%
+Batch 240/248 - Train Loss: 0.7979, Train Accuracy: 78.21%
+Epoch 1 completed in 84.37 seconds.
+Training Loss: 0.7832 | Training Accuracy: 78.67%
+Validation Loss: 0.4514 | Validation Accuracy: 88.12%
+
+Epoch 2/9
+Batch 10/248 - Train Loss: 0.6080, Train Accuracy: 80.00%
+Batch 20/248 - Train Loss: 0.5311, Train Accuracy: 84.50%
+Batch 30/248 - Train Loss: 0.5493, Train Accuracy: 84.33%
+Batch 40/248 - Train Loss: 0.5076, Train Accuracy: 86.00%
+Batch 50/248 - Train Loss: 0.4793, Train Accuracy: 87.20%
+Batch 60/248 - Train Loss: 0.4771, Train Accuracy: 87.17%
+Batch 70/248 - Train Loss: 0.4694, Train Accuracy: 87.71%
+Batch 80/248 - Train Loss: 0.4485, Train Accuracy: 88.50%
+Batch 90/248 - Train Loss: 0.4535, Train Accuracy: 88.33%
+Batch 100/248 - Train Loss: 0.4456, Train Accuracy: 88.70%
+Batch 110/248 - Train Loss: 0.4379, Train Accuracy: 89.00%
+Batch 120/248 - Train Loss: 0.4353, Train Accuracy: 88.92%
+Batch 130/248 - Train Loss: 0.4357, Train Accuracy: 88.69%
+Batch 140/248 - Train Loss: 0.4420, Train Accuracy: 88.50%
+Batch 150/248 - Train Loss: 0.4436, Train Accuracy: 88.40%
+Batch 160/248 - Train Loss: 0.4475, Train Accuracy: 88.19%
+Batch 170/248 - Train Loss: 0.4388, Train Accuracy: 88.53%
+Batch 180/248 - Train Loss: 0.4330, Train Accuracy: 88.61%
+Batch 190/248 - Train Loss: 0.4326, Train Accuracy: 88.58%
+Batch 200/248 - Train Loss: 0.4268, Train Accuracy: 88.75%
+Batch 210/248 - Train Loss: 0.4254, Train Accuracy: 88.76%
+Batch 220/248 - Train Loss: 0.4202, Train Accuracy: 88.86%
+Batch 230/248 - Train Loss: 0.4249, Train Accuracy: 88.70%
+Batch 240/248 - Train Loss: 0.4224, Train Accuracy: 88.67%
+Epoch 2 completed in 86.58 seconds.
+Training Loss: 0.4246 | Training Accuracy: 88.65%
+Validation Loss: 0.3577 | Validation Accuracy: 88.60%
+
+Epoch 3/9
+Batch 10/248 - Train Loss: 0.3978, Train Accuracy: 88.00%
+Batch 20/248 - Train Loss: 0.4069, Train Accuracy: 88.50%
+Batch 30/248 - Train Loss: 0.3492, Train Accuracy: 90.33%
+Batch 40/248 - Train Loss: 0.3606, Train Accuracy: 90.00%
+Batch 50/248 - Train Loss: 0.3632, Train Accuracy: 89.40%
+Batch 60/248 - Train Loss: 0.3950, Train Accuracy: 88.50%
+Batch 70/248 - Train Loss: 0.3834, Train Accuracy: 89.00%
+Batch 80/248 - Train Loss: 0.3816, Train Accuracy: 88.88%
+Batch 90/248 - Train Loss: 0.3743, Train Accuracy: 89.11%
+Batch 100/248 - Train Loss: 0.3723, Train Accuracy: 89.40%
+Batch 110/248 - Train Loss: 0.3672, Train Accuracy: 89.64%
+Batch 120/248 - Train Loss: 0.3760, Train Accuracy: 89.42%
+Batch 130/248 - Train Loss: 0.3802, Train Accuracy: 89.38%
+Batch 140/248 - Train Loss: 0.3685, Train Accuracy: 89.86%
+Batch 150/248 - Train Loss: 0.3662, Train Accuracy: 89.87%
+Batch 160/248 - Train Loss: 0.3649, Train Accuracy: 89.75%
+Batch 170/248 - Train Loss: 0.3647, Train Accuracy: 89.65%
+Batch 180/248 - Train Loss: 0.3601, Train Accuracy: 89.78%
+Batch 190/248 - Train Loss: 0.3658, Train Accuracy: 89.63%
+Batch 200/248 - Train Loss: 0.3618, Train Accuracy: 89.70%
+Batch 210/248 - Train Loss: 0.3605, Train Accuracy: 89.67%
+Batch 220/248 - Train Loss: 0.3584, Train Accuracy: 89.77%
+Batch 230/248 - Train Loss: 0.3574, Train Accuracy: 89.87%
+Batch 240/248 - Train Loss: 0.3538, Train Accuracy: 89.92%
+Epoch 3 completed in 86.81 seconds.
+Training Loss: 0.3501 | Training Accuracy: 89.98%
+Validation Loss: 0.3175 | Validation Accuracy: 88.78%
+
+Epoch 4/9
+Batch 10/248 - Train Loss: 0.2682, Train Accuracy: 94.00%
+Batch 20/248 - Train Loss: 0.3134, Train Accuracy: 90.00%
+Batch 30/248 - Train Loss: 0.3132, Train Accuracy: 90.33%
+Batch 40/248 - Train Loss: 0.3250, Train Accuracy: 90.00%
+Batch 50/248 - Train Loss: 0.3266, Train Accuracy: 90.40%
+Batch 60/248 - Train Loss: 0.3198, Train Accuracy: 90.67%
+Batch 70/248 - Train Loss: 0.3270, Train Accuracy: 90.14%
+Batch 80/248 - Train Loss: 0.3082, Train Accuracy: 90.75%
+Batch 90/248 - Train Loss: 0.3141, Train Accuracy: 90.56%
+Batch 100/248 - Train Loss: 0.3075, Train Accuracy: 90.80%
+Batch 110/248 - Train Loss: 0.3025, Train Accuracy: 91.00%
+Batch 120/248 - Train Loss: 0.3116, Train Accuracy: 90.75%
+Batch 130/248 - Train Loss: 0.3041, Train Accuracy: 90.92%
+Batch 140/248 - Train Loss: 0.2974, Train Accuracy: 91.07%
+Batch 150/248 - Train Loss: 0.2942, Train Accuracy: 90.93%
+Batch 160/248 - Train Loss: 0.3004, Train Accuracy: 90.75%
+Batch 170/248 - Train Loss: 0.2963, Train Accuracy: 90.94%
+Batch 180/248 - Train Loss: 0.2897, Train Accuracy: 91.33%
+Batch 190/248 - Train Loss: 0.2873, Train Accuracy: 91.37%
+Batch 200/248 - Train Loss: 0.2923, Train Accuracy: 91.25%
+Batch 210/248 - Train Loss: 0.2900, Train Accuracy: 91.29%
+Batch 220/248 - Train Loss: 0.2910, Train Accuracy: 91.32%
+Batch 230/248 - Train Loss: 0.2898, Train Accuracy: 91.39%
+Batch 240/248 - Train Loss: 0.2940, Train Accuracy: 91.21%
+Epoch 4 completed in 87.19 seconds.
+Training Loss: 0.2964 | Training Accuracy: 91.15%
+Validation Loss: 0.2830 | Validation Accuracy: 92.27%
+
+Epoch 5/9
+Batch 10/248 - Train Loss: 0.2264, Train Accuracy: 92.00%
+Batch 20/248 - Train Loss: 0.2440, Train Accuracy: 92.50%
+Batch 30/248 - Train Loss: 0.2763, Train Accuracy: 92.00%
+Batch 40/248 - Train Loss: 0.2851, Train Accuracy: 92.00%
+Batch 50/248 - Train Loss: 0.2976, Train Accuracy: 91.40%
+Batch 60/248 - Train Loss: 0.2751, Train Accuracy: 92.00%
+Batch 70/248 - Train Loss: 0.2818, Train Accuracy: 91.57%
+Batch 80/248 - Train Loss: 0.2824, Train Accuracy: 91.50%
+Batch 90/248 - Train Loss: 0.2744, Train Accuracy: 91.78%
+Batch 100/248 - Train Loss: 0.2711, Train Accuracy: 91.60%
+Batch 110/248 - Train Loss: 0.2678, Train Accuracy: 91.73%
+Batch 120/248 - Train Loss: 0.2681, Train Accuracy: 91.58%
+Batch 130/248 - Train Loss: 0.2650, Train Accuracy: 91.77%
+Batch 140/248 - Train Loss: 0.2671, Train Accuracy: 91.64%
+Batch 150/248 - Train Loss: 0.2645, Train Accuracy: 91.80%
+Batch 160/248 - Train Loss: 0.2617, Train Accuracy: 92.06%
+Batch 170/248 - Train Loss: 0.2593, Train Accuracy: 92.06%
+Batch 180/248 - Train Loss: 0.2598, Train Accuracy: 92.22%
+Batch 190/248 - Train Loss: 0.2557, Train Accuracy: 92.42%
+Batch 200/248 - Train Loss: 0.2596, Train Accuracy: 92.20%
+Batch 210/248 - Train Loss: 0.2570, Train Accuracy: 92.24%
+Batch 220/248 - Train Loss: 0.2605, Train Accuracy: 92.09%
+Batch 230/248 - Train Loss: 0.2571, Train Accuracy: 92.35%
+Batch 240/248 - Train Loss: 0.2592, Train Accuracy: 92.29%
+Epoch 5 completed in 87.50 seconds.
+Training Loss: 0.2551 | Training Accuracy: 92.40%
+Validation Loss: 0.2529 | Validation Accuracy: 92.27%
+
+Epoch 6/9
+Batch 10/248 - Train Loss: 0.1954, Train Accuracy: 93.00%
+Batch 20/248 - Train Loss: 0.2276, Train Accuracy: 91.00%
+Batch 30/248 - Train Loss: 0.2462, Train Accuracy: 90.67%
+Batch 40/248 - Train Loss: 0.2334, Train Accuracy: 91.75%
+Batch 50/248 - Train Loss: 0.2261, Train Accuracy: 92.40%
+Batch 60/248 - Train Loss: 0.2270, Train Accuracy: 92.50%
+Batch 70/248 - Train Loss: 0.2326, Train Accuracy: 92.29%
+Batch 80/248 - Train Loss: 0.2274, Train Accuracy: 92.50%
+Batch 90/248 - Train Loss: 0.2327, Train Accuracy: 92.33%
+Batch 100/248 - Train Loss: 0.2288, Train Accuracy: 92.80%
+Batch 110/248 - Train Loss: 0.2294, Train Accuracy: 92.91%
+Batch 120/248 - Train Loss: 0.2212, Train Accuracy: 93.17%
+Batch 130/248 - Train Loss: 0.2268, Train Accuracy: 93.00%
+Batch 140/248 - Train Loss: 0.2219, Train Accuracy: 93.21%
+Batch 150/248 - Train Loss: 0.2227, Train Accuracy: 93.27%
+Batch 160/248 - Train Loss: 0.2232, Train Accuracy: 93.50%
+Batch 170/248 - Train Loss: 0.2200, Train Accuracy: 93.71%
+Batch 180/248 - Train Loss: 0.2165, Train Accuracy: 93.89%
+Batch 190/248 - Train Loss: 0.2186, Train Accuracy: 93.79%
+Batch 200/248 - Train Loss: 0.2177, Train Accuracy: 93.85%
+Batch 210/248 - Train Loss: 0.2190, Train Accuracy: 93.81%
+Batch 220/248 - Train Loss: 0.2185, Train Accuracy: 93.86%
+Batch 230/248 - Train Loss: 0.2254, Train Accuracy: 93.61%
+Batch 240/248 - Train Loss: 0.2310, Train Accuracy: 93.38%
+Epoch 6 completed in 86.31 seconds.
+Training Loss: 0.2306 | Training Accuracy: 93.33%
+Validation Loss: 0.2318 | Validation Accuracy: 93.03%
+
+Epoch 7/9
+Batch 10/248 - Train Loss: 0.2238, Train Accuracy: 97.00%
+Batch 20/248 - Train Loss: 0.2425, Train Accuracy: 95.00%
+Batch 30/248 - Train Loss: 0.2164, Train Accuracy: 95.67%
+Batch 40/248 - Train Loss: 0.2329, Train Accuracy: 94.25%
+Batch 50/248 - Train Loss: 0.2287, Train Accuracy: 94.20%
+Batch 60/248 - Train Loss: 0.2189, Train Accuracy: 94.67%
+Batch 70/248 - Train Loss: 0.2094, Train Accuracy: 95.14%
+Batch 80/248 - Train Loss: 0.1974, Train Accuracy: 95.50%
+Batch 90/248 - Train Loss: 0.1915, Train Accuracy: 95.56%
+Batch 100/248 - Train Loss: 0.1904, Train Accuracy: 95.50%
+Batch 110/248 - Train Loss: 0.1933, Train Accuracy: 95.36%
+Batch 120/248 - Train Loss: 0.1960, Train Accuracy: 95.17%
+Batch 130/248 - Train Loss: 0.1967, Train Accuracy: 95.15%
+Batch 140/248 - Train Loss: 0.1899, Train Accuracy: 95.43%
+Batch 150/248 - Train Loss: 0.1852, Train Accuracy: 95.53%
+Batch 160/248 - Train Loss: 0.1846, Train Accuracy: 95.44%
+Batch 170/248 - Train Loss: 0.1864, Train Accuracy: 95.35%
+Batch 180/248 - Train Loss: 0.1856, Train Accuracy: 95.33%
+Batch 190/248 - Train Loss: 0.1866, Train Accuracy: 95.32%
+Batch 200/248 - Train Loss: 0.1878, Train Accuracy: 95.15%
+Batch 210/248 - Train Loss: 0.1859, Train Accuracy: 95.19%
+Batch 220/248 - Train Loss: 0.1888, Train Accuracy: 95.05%
+Batch 230/248 - Train Loss: 0.1858, Train Accuracy: 95.22%
+Batch 240/248 - Train Loss: 0.1869, Train Accuracy: 95.12%
+Epoch 7 completed in 87.27 seconds.
+Training Loss: 0.1885 | Training Accuracy: 95.03%
+Validation Loss: 0.2141 | Validation Accuracy: 93.21%
+
+Epoch 8/9
+Batch 10/248 - Train Loss: 0.2276, Train Accuracy: 92.00%
+Batch 20/248 - Train Loss: 0.1753, Train Accuracy: 95.00%
+Batch 30/248 - Train Loss: 0.1606, Train Accuracy: 96.00%
+Batch 40/248 - Train Loss: 0.1631, Train Accuracy: 95.50%
+Batch 50/248 - Train Loss: 0.1679, Train Accuracy: 95.40%
+Batch 60/248 - Train Loss: 0.1735, Train Accuracy: 94.83%
+Batch 70/248 - Train Loss: 0.1845, Train Accuracy: 94.14%
+Batch 80/248 - Train Loss: 0.1828, Train Accuracy: 94.25%
+Batch 90/248 - Train Loss: 0.1891, Train Accuracy: 94.11%
+Batch 100/248 - Train Loss: 0.1913, Train Accuracy: 93.90%
+Batch 110/248 - Train Loss: 0.1866, Train Accuracy: 94.27%
+Batch 120/248 - Train Loss: 0.1866, Train Accuracy: 94.17%
+Batch 130/248 - Train Loss: 0.1796, Train Accuracy: 94.62%
+Batch 140/248 - Train Loss: 0.1802, Train Accuracy: 94.50%
+Batch 150/248 - Train Loss: 0.1778, Train Accuracy: 94.67%
+Batch 160/248 - Train Loss: 0.1821, Train Accuracy: 94.50%
+Batch 170/248 - Train Loss: 0.1788, Train Accuracy: 94.71%
+Batch 180/248 - Train Loss: 0.1772, Train Accuracy: 94.83%
+Batch 190/248 - Train Loss: 0.1762, Train Accuracy: 94.89%
+Batch 200/248 - Train Loss: 0.1734, Train Accuracy: 95.00%
+Batch 210/248 - Train Loss: 0.1746, Train Accuracy: 94.90%
+Batch 220/248 - Train Loss: 0.1734, Train Accuracy: 94.95%
+Batch 230/248 - Train Loss: 0.1733, Train Accuracy: 95.00%
+Batch 240/248 - Train Loss: 0.1748, Train Accuracy: 94.96%
+Epoch 8 completed in 90.03 seconds.
+Training Loss: 0.1797 | Training Accuracy: 94.91%
+Validation Loss: 0.2039 | Validation Accuracy: 93.31%
+
+Epoch 9/9
+Batch 10/248 - Train Loss: 0.1303, Train Accuracy: 96.00%
+Batch 20/248 - Train Loss: 0.2015, Train Accuracy: 93.50%
+Batch 30/248 - Train Loss: 0.1718, Train Accuracy: 94.67%
+Batch 40/248 - Train Loss: 0.1690, Train Accuracy: 94.50%
+Batch 50/248 - Train Loss: 0.1606, Train Accuracy: 95.00%
+Batch 60/248 - Train Loss: 0.1477, Train Accuracy: 95.83%
+Batch 70/248 - Train Loss: 0.1455, Train Accuracy: 96.00%
+Batch 80/248 - Train Loss: 0.1396, Train Accuracy: 96.25%
+Batch 90/248 - Train Loss: 0.1352, Train Accuracy: 96.44%
+Batch 100/248 - Train Loss: 0.1375, Train Accuracy: 96.60%
+Batch 110/248 - Train Loss: 0.1428, Train Accuracy: 96.64%
+Batch 120/248 - Train Loss: 0.1471, Train Accuracy: 96.42%
+Batch 130/248 - Train Loss: 0.1509, Train Accuracy: 96.15%
+Batch 140/248 - Train Loss: 0.1524, Train Accuracy: 96.07%
+Batch 150/248 - Train Loss: 0.1563, Train Accuracy: 95.80%
+Batch 160/248 - Train Loss: 0.1564, Train Accuracy: 95.75%
+Batch 170/248 - Train Loss: 0.1590, Train Accuracy: 95.47%
+Batch 180/248 - Train Loss: 0.1596, Train Accuracy: 95.44%
+Batch 190/248 - Train Loss: 0.1571, Train Accuracy: 95.58%
+Batch 200/248 - Train Loss: 0.1554, Train Accuracy: 95.55%
+Batch 210/248 - Train Loss: 0.1535, Train Accuracy: 95.67%
+Batch 220/248 - Train Loss: 0.1495, Train Accuracy: 95.86%
+Batch 230/248 - Train Loss: 0.1497, Train Accuracy: 95.96%
+Batch 240/248 - Train Loss: 0.1511, Train Accuracy: 95.88%
+Epoch 9 completed in 54.72 seconds.
+Training Loss: 0.1491 | Training Accuracy: 95.92%
+Validation Loss: 0.1953 | Validation Accuracy: 93.59%
+
+=====> Total Training Time for 2475 images for all 9 epochs = 750.77 seconds.
+
+Final validation using validation dataset...
+Plotting Confusion matrix
+Model saved as googlenet_ultrasound.pth
+(presetfree) PS E:\Work\Proj_PRESETFREE\PresetFree\US_Image_Classification>

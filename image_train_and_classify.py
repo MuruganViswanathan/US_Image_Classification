@@ -55,7 +55,7 @@ def count_class_instances(dataset, indices, class_names):
 
 #########################################################################################
 # Training function with learning curve tracking and batch-wise progress
-def train_model(model, train_loader, val_loader, criterion, optimizer, num_epochs=15):
+def train_model(model, train_loader, val_loader, criterion, optimizer, num_epochs=9):
     total_time = 0  # total training time for all epochsccc
 
     num_images = len(train_loader.dataset)  # Unique number of training images
@@ -241,3 +241,28 @@ plot_confusion_matrix_with_percentages(final_labels, final_preds, class_names)
 # Save the trained model
 torch.save(net.state_dict(), 'googlenet_ultrasound.pth')
 print('Model saved as googlenet_ultrasound.pth')
+
+#=========================================================================================
+# Load trained model for final evaluation
+trained_net = models.googlenet(weights=models.GoogLeNet_Weights.IMAGENET1K_V1)
+trained_net.fc = nn.Linear(trained_net.fc.in_features, num_classes)  # Ensure correct output layer
+trained_net.load_state_dict(torch.load('googlenet_ultrasound.pth'))  # Load saved weights
+trained_net = trained_net.to(device)
+trained_net.eval()  # Set to evaluation mode
+
+# Perform final validation
+print("\nFinal validation using validation dataset after loading trained model...")
+final_labels = []
+final_preds = []
+
+with torch.no_grad():
+    for inputs, labels in val_loader:
+        inputs, labels = inputs.to(device), labels.to(device)
+        outputs = trained_net(inputs)
+        _, predicted = outputs.max(1)
+        final_labels.extend(labels.cpu().numpy())
+        final_preds.extend(predicted.cpu().numpy())
+
+# Plot confusion matrix with percentages after all epochs
+plot_confusion_matrix_with_percentages(final_labels, final_preds, class_names)
+
