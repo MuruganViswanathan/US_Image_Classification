@@ -1,3 +1,6 @@
+## Author: Murugan Viswanathan
+## Image inference using the Trained PTH file
+
 import torch
 import torch.nn as nn
 from torchvision import models, transforms
