@@ -1,9 +1,14 @@
 import torch
+import torch.nn as nn
 from torchvision import models, transforms
 from PIL import Image
-import argparse
+import sys
+import os
 
-# Define image transformations
+# Class labels (adjust these to match your dataset structure)
+class_names = ['Breast', 'Kidney', 'Liver', 'Ovary', 'Spleen', 'Thyroid', 'Uterus']
+
+# Define image transformation to match the model's input requirements
 data_transforms = transforms.Compose([
     transforms.Resize((224, 224)),
     transforms.ToTensor(),
@@ -11,37 +16,40 @@ data_transforms = transforms.Compose([
 ])
 
 # Load the trained model
-num_classes = 7  # Update based on your dataset
-net = models.googlenet(pretrained=False, aux_logits=False)  # Disable auxiliary classifiers
-net.fc = torch.nn.Linear(net.fc.in_features, num_classes)
-net.load_state_dict(torch.load('googlenet_ultrasound.pth'))
-net.eval()  # Set model to evaluation mode
-
-# Transfer to GPU if available
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-net = net.to(device)
+model = models.googlenet(weights=None, aux_logits=False)  # Start with a non-pretrained GoogLeNet model and disable aux classifiers
+model.fc = nn.Linear(model.fc.in_features, len(class_names))  # Adjust final layer
+model.load_state_dict(torch.load('googlenet_ultrasound.pth', map_location=device))  # Load saved weights
+model = model.to(device)  # load model to GPU if available
+model.eval()  # Set model to evaluation mode
 
-# Function to preprocess the image and run inference
-def predict_image(image_path):
-    image = Image.open(image_path)
+# Function to predict the class of a single image
+def classify_image(image_path):
+    # Check if file exists
+    if not os.path.isfile(image_path):
+        print(f"File {image_path} not found.")
+        return
+
+    # Load and preprocess the image
+    image = Image.open(image_path).convert('RGB')
     image = data_transforms(image).unsqueeze(0)  # Add batch dimension
+
+    # Move image to GPU if available
     image = image.to(device)
 
+    # Perform the prediction
     with torch.no_grad():
-        outputs = net(image)
-        _, predicted = outputs.max(1)
+        outputs = model(image)
+        _, predicted = torch.max(outputs, 1)
 
-    return predicted.item()
+    # Print the predicted label
+    print(f"Predicted Label: {class_names[predicted.item()]}")
 
-# Command-line argument parser
-def main():
-    parser = argparse.ArgumentParser(description='Ultrasound Image Inference')
-    parser.add_argument('image_path', type=str, help='Path to the input image')
-    args = parser.parse_args()
-
-    # Predict class for the input image
-    predicted_class = predict_image(args.image_path)
-    print(f'Predicted class: {predicted_class}')
-
-if __name__ == "__main__":
-    main()
+######################################################################################
+# Read image file path from command line argument
+if __name__ == '__main__':
+    if len(sys.argv) != 2:
+        print("Usage: python classify_image.py <path_to_image>")
+    else:
+        image_path = sys.argv[1]
+        classify_image(image_path)
