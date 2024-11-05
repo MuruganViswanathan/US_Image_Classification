@@ -14,7 +14,8 @@ from sklearn.metrics import confusion_matrix
 from collections import Counter
 
 # Directory for your dataset
-data_dir = 'S:/Engineering/AI Datasets/PresetFreeImaging/Test3/'
+#data_dir = 'S:/Engineering/AI Datasets/PresetFreeImaging/Test3/'
+data_dir = '../../Images/Test3/'
 
 # Image transformations: Resize and normalize images to fit GoogLeNet input requirements
 data_transforms = transforms.Compose([
