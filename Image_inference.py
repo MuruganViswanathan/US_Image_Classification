@@ -7,6 +7,7 @@ from torchvision import models, transforms
 from PIL import Image
 import sys
 import os
+import time
 
 # Class labels (adjust these to match your dataset structure)
 class_names = ['Breast', 'Kidney', 'Liver', 'Ovary', 'Spleen', 'Thyroid', 'Uterus']
@@ -18,6 +19,8 @@ data_transforms = transforms.Compose([
     transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
 ])
 
+start_time = time.time()
+
 # Load the trained model
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = models.googlenet(weights=None, aux_logits=False)  # Start with a non-pretrained GoogLeNet model and disable aux classifiers
@@ -26,8 +29,13 @@ model.load_state_dict(torch.load('googlenet_ultrasound.pth', map_location=device
 model = model.to(device)  # load model to GPU if available
 model.eval()  # Set model to evaluation mode
 
+load_time = time.time() - start_time
+print(f'\nLoaded pretrained googlenet_ultrasound.pth in = {load_time:.2f} seconds.\n')
+
 # Function to predict the class of a single image
 def classify_image(image_path):
+    start_time = time.time()
+
     # Check if file exists
     if not os.path.isfile(image_path):
         print(f"File {image_path} not found.")
@@ -45,8 +53,11 @@ def classify_image(image_path):
         outputs = model(image)
         _, predicted = torch.max(outputs, 1)
 
+    end_time = time.time() - start_time
+
     # Print the predicted label
-    print(f"Predicted Label: {class_names[predicted.item()]}")
+    print(f"Predicted Label = {class_names[predicted.item()]}")
+    print(f'\nTime taken = {end_time:.2f} seconds.\n')
 
 ######################################################################################
 # Read image file path from command line argument

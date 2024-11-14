@@ -12,10 +12,12 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.metrics import confusion_matrix
 from collections import Counter
+import onnx
+import onnxruntime as ort
 
 # Directory for your dataset
-#data_dir = 'S:/Engineering/AI Datasets/PresetFreeImaging/Test3/'
-data_dir = '../../Images/Test3/'
+data_dir = 'S:/Engineering/AI Datasets/PresetFreeImaging/Test3/'
+# data_dir = '../../Images/Test3/'
 
 # Image transformations: Resize and normalize images to fit GoogLeNet input requirements
 data_transforms = transforms.Compose([
@@ -86,26 +88,13 @@ def train_model(model, train_loader, val_loader, criterion, optimizer, num_epoch
             total_train += labels.size(0)
             running_correct += predicted.eq(labels).sum().item()
 
-            # # Validation phase within epoch
-            # model.eval()
-            # val_loss, val_correct, total_val = 0.0, 0, 0
-            # with torch.no_grad():
-            #     for val_inputs, val_labels in val_loader:
-            #         val_inputs, val_labels = val_inputs.to(device), val_labels.to(device)
-            #         val_outputs = model(val_inputs)
-            #         val_loss += criterion(val_outputs, val_labels).item()
-            #         _, val_predicted = val_outputs.max(1)
-            #         total_val += val_labels.size(0)
-            #         val_correct += val_predicted.eq(val_labels).sum().item()
-            # model.train()  # Switch back to training mode
-
-            # Print progress
-            if (i + 1) % 10 == 0:  # Print every 10 batches
+            if (i + 1) % 10 == 0:
                 print(f'Batch {i + 1}/{len(train_loader)} - Train Loss: {running_loss / (i + 1):.4f}, '
-                      f'Train Accuracy: {100 * running_correct / total_train:.2f}% ')
+                      f'Train Accuracy: {100 * running_correct / total_train:.2f}%')
 
         # Validation phase (once per epoch)
         model.eval()  # Evaluation mode, so that the weights are not changed
+
         val_loss, val_correct, total_val = 0.0, 0, 0
         with torch.no_grad():
             for val_inputs, val_labels in val_loader:
@@ -115,7 +104,6 @@ def train_model(model, train_loader, val_loader, criterion, optimizer, num_epoch
                 _, val_predicted = val_outputs.max(1)
                 total_val += val_labels.size(0)
                 val_correct += val_predicted.eq(val_labels).sum().item()
-
 
         # Record losses and accuracies for plotting
         epoch_train_loss = running_loss / len(train_loader)
@@ -134,8 +122,7 @@ def train_model(model, train_loader, val_loader, criterion, optimizer, num_epoch
         print(f'Training Loss: {epoch_train_loss:.4f} | Training Accuracy: {epoch_train_accuracy:.2f}%')
         print(f'Validation Loss: {epoch_val_loss:.4f} | Validation Accuracy: {epoch_val_accuracy:.2f}%')
 
-    # Print total training time
-    print(f'\n=====> Total Training Time for {num_images} images for all {num_epochs} epochs = {total_time:.2f} seconds.\n')
+    print(f'\n=====> Total Training Time for {len(train_loader.dataset)} images for all {num_epochs} epochs = {total_time:.2f} seconds.\n')
 
     # Final validation phase after all epochs
     print("Final validation using validation dataset...")
@@ -177,7 +164,7 @@ def train_model(model, train_loader, val_loader, criterion, optimizer, num_epoch
 #########################################################################################
 # Confusion Matrix Plotting
 def plot_confusion_matrix_with_percentages(labels, preds, class_names):
-    print("Plotting Confusion matrix")
+    # print("Plotting Confusion matrix")
     cm = confusion_matrix(labels, preds)
 
     # Last Row: Precision per class (handling division by zero)
@@ -213,8 +200,6 @@ def plot_confusion_matrix_with_percentages(labels, preds, class_names):
 
 # Load pre-trained GoogLeNet
 net = models.googlenet(weights=models.GoogLeNet_Weights.IMAGENET1K_V1)
-
-# Modify the final layer for our dataset's number of classes
 net.fc = nn.Linear(net.fc.in_features, num_classes)
 
 # Set up training
@@ -239,31 +224,34 @@ count_class_instances(dataset, val_dataset.indices, class_names)
 final_labels, final_preds = train_model(net, train_loader, val_loader, criterion, optimizer)
 plot_confusion_matrix_with_percentages(final_labels, final_preds, class_names)
 
-# Save the trained model
-torch.save(net.state_dict(), 'googlenet_ultrasound.pth')
-print('Model saved as googlenet_ultrasound.pth')
+# Save the model as ONNX format with dynamic batch size
+torch.onnx.export(
+    net,
+    torch.randn(1, 3, 224, 224, device=device),
+    "googlenet_ultrasound.onnx",
+    input_names=['input'],
+    output_names=['output'],
+    dynamic_axes={'input': {0: 'batch_size'}, 'output': {0: 'batch_size'}}
+)
+print("Model saved as googlenet_ultrasound.onnx with dynamic batch size.")
 
-#=========================================================================================
-# Load trained model for final evaluation
-trained_net = models.googlenet(weights=models.GoogLeNet_Weights.IMAGENET1K_V1)
-trained_net.fc = nn.Linear(trained_net.fc.in_features, num_classes)  # Ensure correct output layer
-trained_net.load_state_dict(torch.load('googlenet_ultrasound.pth'))  # Load saved weights
-trained_net = trained_net.to(device)
-trained_net.eval()  # Set to evaluation mode
 
-# Perform final validation
-print("\nFinal validation using validation dataset after loading trained model...")
-final_labels = []
-final_preds = []
+# Validation using ONNX model
+def validate_onnx_model(val_loader):
+    ort_session = ort.InferenceSession("googlenet_ultrasound.onnx")
+    onnx_labels, onnx_preds = [], []
 
-with torch.no_grad():
     for inputs, labels in val_loader:
-        inputs, labels = inputs.to(device), labels.to(device)
-        outputs = trained_net(inputs)
-        _, predicted = outputs.max(1)
-        final_labels.extend(labels.cpu().numpy())
-        final_preds.extend(predicted.cpu().numpy())
+        inputs = inputs.numpy()
+        ort_inputs = {ort_session.get_inputs()[0].name: inputs}
+        ort_outs = ort_session.run(None, ort_inputs)
+        predicted = np.argmax(ort_outs[0], axis=1)
+        onnx_labels.extend(labels.numpy())
+        onnx_preds.extend(predicted)
 
-# Plot confusion matrix with percentages after all epochs
-plot_confusion_matrix_with_percentages(final_labels, final_preds, class_names)
+    # Plot confusion matrix
+    plot_confusion_matrix_with_percentages(onnx_labels, onnx_preds, class_names)
 
+
+print("\n=====> Validation using ONNX model:\n")
+validate_onnx_model(val_loader)
