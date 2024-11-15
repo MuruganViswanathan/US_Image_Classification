@@ -59,7 +59,7 @@ def count_class_instances(dataset, indices, class_names):
 #########################################################################################
 # Training function with learning curve tracking and batch-wise progress
 def train_model(model, train_loader, val_loader, criterion, optimizer, num_epochs=9):
-    total_time = 0  # total training time for all epochsccc
+    total_time = 0  # total training time for all epochs
 
     num_images = len(train_loader.dataset)  # Unique number of training images
     train_losses, val_losses, train_accuracies, val_accuracies = [], [], [], []  # Track learning curves
@@ -253,5 +253,6 @@ def validate_onnx_model(val_loader):
     plot_confusion_matrix_with_percentages(onnx_labels, onnx_preds, class_names)
 
 
-print("\n=====> Validation using ONNX model:\n")
+print("\nValidation using ONNX model..")
 validate_onnx_model(val_loader)
+print("done.\n")
