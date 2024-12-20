@@ -19,30 +19,39 @@ import onnxruntime as ort
 data_dir = 'S:/Engineering/AI Datasets/PresetFreeImaging/Test3/'
 # data_dir = '../../Images/Test3/'
 
-# Image transformations: Resize and normalize images to fit GoogLeNet input requirements
-data_transforms = transforms.Compose([
-    transforms.Resize((224, 224)),  # Resize to GoogLeNet input size
-    transforms.ToTensor(),  # Convert image to tensor
-    transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])  # Normalize to ImageNet means/std
-])
+#########################################################################################
+# Load dataset from dir, transform, get class names using folder names
+def prepare_dataset(data_dir):
+    # Image transformations: Resize and normalize images to fit GoogLeNet input requirements
+    data_transforms = transforms.Compose([
+        transforms.Resize((224, 224)),  # Resize to GoogLeNet input size
+        transforms.ToTensor(),  # Convert image to tensor
+        transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])  # Normalize to ImageNet means/std
+    ])
 
-# Load dataset from the image folder
-dataset = datasets.ImageFolder(root=data_dir, transform=data_transforms)
-class_names = dataset.classes  # Get class names from folder structure
-num_classes = len(class_names)  # Number of classes
+    # Load dataset from the image folder
+    dataset = datasets.ImageFolder(root=data_dir, transform=data_transforms)
+    class_names = dataset.classes  # Get class names from folder structure
+    num_classes = len(class_names)  # Number of classes
 
-print(f"class_names: {class_names}, num_classes = {num_classes}")
+    print(f"class_names: {class_names}, num_classes = {num_classes}")
+    return dataset, class_names, num_classes
 
-# Split dataset into training and validation (70% training, 30% validation)
-train_size = int(0.7 * len(dataset))
-val_size = len(dataset) - train_size
-train_dataset, val_dataset = random_split(dataset, [train_size, val_size])
 
-print(f"train_size = {train_size}, val_size = {val_size}")
+#########################################################################################
+def split_dataset(dataset):
+    # Split dataset into training and validation (70% training, 30% validation)
+    train_size = int(0.7 * len(dataset))
+    val_size = len(dataset) - train_size
+    train_dataset, val_dataset = random_split(dataset, [train_size, val_size])
 
-# Create data loaders
-train_loader = DataLoader(train_dataset, batch_size=10, shuffle=True)
-val_loader = DataLoader(val_dataset, batch_size=10, shuffle=False)
+    print(f"train_size = {train_size}, val_size = {val_size}")
+
+    # Create data loaders
+    train_loader = DataLoader(train_dataset, batch_size=10, shuffle=True)
+    val_loader = DataLoader(val_dataset, batch_size=10, shuffle=False)
+
+    return train_dataset, val_dataset, train_loader, val_loader
 
 
 #########################################################################################
@@ -197,6 +206,12 @@ def plot_confusion_matrix_with_percentages(labels, preds, class_names):
 
 
 #########################################################################################
+## Prepare dataset, Train the model and Classify/Validata results
+#########################################################################################
+
+# dataset
+dataset, class_names, num_classes = prepare_dataset(data_dir)
+train_dataset, val_dataset, train_loader, val_loader = split_dataset(dataset)
 
 # Load pre-trained GoogLeNet
 net = models.googlenet(weights=models.GoogLeNet_Weights.IMAGENET1K_V1)
@@ -256,3 +271,5 @@ def validate_onnx_model(val_loader):
 print("\nValidation using ONNX model..")
 validate_onnx_model(val_loader)
 print("done.\n")
+
+
