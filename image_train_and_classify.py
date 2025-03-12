@@ -1,4 +1,12 @@
 # image_train_validation.py
+# Author: Murugan Viswanathan
+# Given a data_dir with Images grouped into subfolders with the class names
+# this program loads the images from dir, transforms the images, and gets class
+# names using folder names. Then, splits the dataset into train/val sets and trains
+# a GoogleNet model using the train dataset. Then it uses the val dataset to
+# plots various validation curves and confusion matrix to help in fine-tuning.
+# The trained model is stored in an ONNX file. Then the ONNX file is validated again
+# using val dataset.
 
 import torch
 import torch.optim as optim
@@ -208,7 +216,6 @@ def plot_confusion_matrix_with_percentages(labels, preds, class_names):
 #########################################################################################
 ## Prepare dataset, Train the model and Classify/Validata results
 #########################################################################################
-
 # dataset
 dataset, class_names, num_classes = prepare_dataset(data_dir)
 train_dataset, val_dataset, train_loader, val_loader = split_dataset(dataset)
@@ -232,6 +239,7 @@ net = net.to(device)
 # Print class distributions for training and validation sets
 print("\nTraining data class distribution:")
 count_class_instances(dataset, train_dataset.indices, class_names)
+
 print("\nValidation data class distribution:")
 count_class_instances(dataset, val_dataset.indices, class_names)
 
