@@ -1,5 +1,9 @@
-## Author: Murugan Viswanathan
-## Image inference using the Trained PTH file
+### Author: Murugan Viswanathan
+### Image inference using the Trained PTH file
+###  Classifies a specified image into one of the 'class_names'
+###  It loads a pretrained 'googlenet_ultrasound.pth' image located in the same folder and
+###  and uses it for doing the inference.
+###     Usage: python classify_image.py <path_to_image>
 
 import torch
 import torch.nn as nn
@@ -21,8 +25,10 @@ data_transforms = transforms.Compose([
 
 start_time = time.time()
 
-# Load the trained model
+# Set GPU cuda if available
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+# Load a pretrained trained googlenet_ultrasound.pth file
 model = models.googlenet(weights=None, aux_logits=False)  # Start with a non-pretrained GoogLeNet model and disable aux classifiers
 model.fc = nn.Linear(model.fc.in_features, len(class_names))  # Adjust final layer
 model.load_state_dict(torch.load('googlenet_ultrasound.pth', map_location=device))  # Load saved weights
