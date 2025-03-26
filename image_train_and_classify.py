@@ -248,12 +248,14 @@ final_labels, final_preds = train_model(net, train_loader, val_loader, criterion
 plot_confusion_matrix_with_percentages(final_labels, final_preds, class_names)
 
 # Save the model as ONNX format with dynamic batch size
+dummy_input = torch.randn(1, 3, 224, 224, device=device)  # Ensure correct NCHW format
 torch.onnx.export(
     net,
-    torch.randn(1, 3, 224, 224, device=device),
+    dummy_input,
     "googlenet_ultrasound.onnx",
     input_names=['input'],
     output_names=['output'],
+    opset_version=11,  # Use a stable ONNX opset version
     dynamic_axes={'input': {0: 'batch_size'}, 'output': {0: 'batch_size'}}
 )
 print("Model saved as googlenet_ultrasound.onnx with dynamic batch size.")
@@ -265,7 +267,8 @@ def validate_onnx_model(val_loader):
     onnx_labels, onnx_preds = [], []
 
     for inputs, labels in val_loader:
-        inputs = inputs.numpy()
+        inputs = inputs.numpy()  # Convert to NumPy
+        inputs = np.transpose(inputs, (0, 2, 3, 1))  # Ensure NCHW format if needed
         ort_inputs = {ort_session.get_inputs()[0].name: inputs}
         ort_outs = ort_session.run(None, ort_inputs)
         predicted = np.argmax(ort_outs[0], axis=1)
@@ -274,6 +277,7 @@ def validate_onnx_model(val_loader):
 
     # Plot confusion matrix
     plot_confusion_matrix_with_percentages(onnx_labels, onnx_preds, class_names)
+
 
 
 print("\nValidation using ONNX model..")
