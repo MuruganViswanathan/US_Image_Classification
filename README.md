@@ -1,4 +1,4 @@
-# US_Image_Classsification
+# Ultrasound Image Classsification
 Ultrasound Image Classification
 
 
